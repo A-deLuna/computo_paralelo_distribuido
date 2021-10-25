@@ -1,0 +1,4 @@
+FROM conanio/clang11:latest
+COPY ./main.cc ./
+RUN clang++ --std=c++20 --stdlib=libc++  -lpthread  ./main.cc
+ENTRYPOINT ./a.out

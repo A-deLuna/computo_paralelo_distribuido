@@ -2,9 +2,19 @@ services:
   leader:
     build:
       context: ./leader
-    image: leader
+    image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/leader:tony
+    ports:
+      - target: 80
   follower:
     build:
       context: ./follower
-    image: follower
+    image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/follower:tony
+    depends_on:
+      - leader
+    deploy:
+      replicas: 4
+      resources:
+        reservations:
+          cpus: '4.00'
+          memory: 8GB
 

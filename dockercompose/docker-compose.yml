@@ -1,0 +1,10 @@
+services:
+  leader:
+    build:
+      context: ./leader
+    image: leader
+  follower:
+    build:
+      context: ./follower
+    image: follower
+

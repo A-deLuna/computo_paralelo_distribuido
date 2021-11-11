@@ -1,0 +1,11 @@
+services:
+  leader:
+    build:
+      context: ./leader
+    image: leader-cshap
+  worker:
+    build:
+      context: ./worker
+    image: worker-csharp
+    depends_on:
+      - leader

@@ -1,0 +1,11 @@
+services:
+  leader:
+    build:
+      context: ./leader
+    image: leader-cpp
+  worker:
+    build:
+      context: ./worker
+    image: worker-cpp
+    depends_on:
+      - leader

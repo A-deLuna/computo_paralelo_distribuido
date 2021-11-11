@@ -24,9 +24,12 @@ namespace MyApi.Controllers
 
         [HttpGet]
         [Route("register")]
+        // /register
         public ActionResult<String> Register()
         {
           Console.WriteLine("Register");
+          Console.WriteLine(HttpContext.Connection.RemoteIpAddress);
+          // TODO guardar los ips de los workers.
           return "ok";
         }
 
@@ -35,6 +38,7 @@ namespace MyApi.Controllers
         public ActionResult<String> Start()
         {
           Console.WriteLine("Start");
+          // TODO mandar mensajes a los workers.
           return "ok";
         }
     }

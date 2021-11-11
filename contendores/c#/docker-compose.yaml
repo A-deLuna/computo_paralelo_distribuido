@@ -2,7 +2,9 @@ services:
   leader:
     build:
       context: ./leader
-    image: leader-cshap
+    image: leader-csharp
+    ports:
+      - "8080:8080"
   worker:
     build:
       context: ./worker

@@ -50,6 +50,9 @@ Para prender el servicio:
 docker compose up
 ```
 
+Para problar que sí funciona:
+Abrir `http://localhost:8080/start` en el navegador
+
 ## Tips de C#
 
 ### ¿Cómo expongo rutas?

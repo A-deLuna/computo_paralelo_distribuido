@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -12,7 +13,6 @@ namespace MyApi.Controllers
     public class MyController : ControllerBase
     {
         private readonly ILogger<MyController> _logger;
-        private string _ip;
 
         public MyController(ILogger<MyController> logger)
         {
@@ -21,33 +21,44 @@ namespace MyApi.Controllers
 
         [HttpGet]
         [Route("register")]
-        // /register
-        public ActionResult<String> Register()
+        public async Task<String> Register()
         {
           Console.WriteLine("Register");
-          this._ip = HttpContext.Connection.RemoteIpAddress.ToString();
-          Console.WriteLine(this._ip);
           // TODO guardar los ips de los workers.
+          Console.WriteLine(HttpContext.Connection.RemoteIpAddress.ToString());
           return "ok";
         }
 
         [HttpGet]
         [Route("start")]
-        public async Task<String> Start()
+        public async Task<Response> Start()
         {
           Console.WriteLine("Start");
-          using (var client = new HttpClient())
-          {
-              Console.WriteLine(this._ip);
-              var uristring  = "http://[" + this._ip + "]:8080/work";
-              Console.WriteLine(uristring);
-              var uri = new Uri(uristring);
-              var response = await client.GetAsync(uri);
-              string textResult = await response.Content.ReadAsStringAsync();
-              Console.WriteLine(textResult);
-          }
           // TODO mandar mensajes a los workers.
-          return "ok";
+          //
+          // using (var client = new HttpClient())
+          // {
+          //   var response = await client.PostAsJsonAsync(uri, message);
+          //   var counts = await response.Content.ReadFromJsonAsync<int[]>();
+          // }
+          return new Response {
+            MasComun = new CharFreq {
+              Character = 'e',
+              Count = 1000
+            },
+            MenosComun = new CharFreq {
+              Character = 'z',
+              Count = 7
+            }
+          };
+        }
+        public struct CharFreq {
+          public char Character { get; set; }
+          public int Count { get; set; }
+        }
+        public struct Response {
+          public CharFreq MasComun { get; set; }
+          public CharFreq MenosComun { get; set; }
         }
     }
 }

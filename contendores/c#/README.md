@@ -83,8 +83,7 @@ De forma automática asp .net serializa y deserializa objetos en formato JSON.
         [HttpGet]
         [Route("get")]
         public async Task<ReqBody> Get() {
-          var rb = new ReqBody();
-          rb.Id = 100;
+          var rb = new ReqBody{ Id = 100 };
           return rb;
         }
 
@@ -125,7 +124,7 @@ JSON a un objeto de c#.
     public async Task<int> Get() {
         using (HttpClient client = new HttpClient())
         {
-            ReqBody rb = await client.GetJsonAsync<ReqBody>(new Uri(url));
+            ReqBody rb = await client.GetJsonAsync<ReqBody>(new Uri(url_string));
             return rb.Id;
         }
     }
@@ -143,8 +142,7 @@ un objecto de c# a JSON.
     public async Task<String> Get() {
         using (HttpClient client = new HttpClient())
         {
-            ReqBody rb = new ReqBody();
-            rb.Id = 100;
+            ReqBody rb = new ReqBody { Id = 100};
             await client.PostAsJsonAsync(new Uri("http://google.com/blah"), rb);
         }
         return "ok";

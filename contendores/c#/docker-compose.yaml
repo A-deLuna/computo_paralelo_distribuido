@@ -9,5 +9,7 @@ services:
     build:
       context: ./worker
     image: worker-csharp
+    deploy:
+      replicas: 4
     depends_on:
       - leader

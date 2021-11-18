@@ -17,13 +17,16 @@ namespace MyApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("work")]
-        public ActionResult<String> Register()
+        public async Task<int[]> Work(ReqObj req)
         {
           Console.WriteLine("work");
-          return "ok";
+          return new int[128];
         }
 
+        public struct ReqObj {
+          public int Something { get; set; }
+        }
     }
 }

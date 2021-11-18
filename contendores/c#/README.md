@@ -13,7 +13,7 @@ distribuye trabajo a todos los trabajadores. Espera los resultados de todos.
 Une los resultados de todos para producir una sola respuesta.
 Responde al usuario con la respuesta.
 
-![diagrama](./diagrama.svc)
+![diagrama](./diagrama.svg)
 
 ### Endpoints del Lider
 * /register

@@ -39,6 +39,16 @@ Responde al usuario con la respuesta.
   * Responde al lider con información de frecuencia de cada letra en el rango
     asignado
 
+## Tips Docker
+Para construir las imáginer de docker:
+```
+docker compose build
+```
+
+Para prender el servicio:
+```
+docker compose up
+```
 
 ## Tips de C#
 

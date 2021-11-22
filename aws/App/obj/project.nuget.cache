@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "iKCItoIJmCMwYx0ig3ofDBFxZxiGyxX9+ZELkXpPVYVuL+55Gb54+9jMxdYl3fgh9gGWClcfE+dJPXG2G8im7w==",
+  "success": true,
+  "projectFilePath": "/App/App.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/awssdk.core/3.7.5/awssdk.core.3.7.5.nupkg.sha512",
+    "/root/.nuget/packages/awssdk.s3/3.7.4.9/awssdk.s3.3.7.4.9.nupkg.sha512"
+  ],
+  "logs": []
+}

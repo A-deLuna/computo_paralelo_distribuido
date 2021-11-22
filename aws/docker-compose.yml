@@ -1,0 +1,8 @@
+services:
+  aws:
+    build:
+      context: .
+    volumes:
+      - "~/.aws/:/root/.aws/"
+    environment:
+      AWS_PROFILE: personal

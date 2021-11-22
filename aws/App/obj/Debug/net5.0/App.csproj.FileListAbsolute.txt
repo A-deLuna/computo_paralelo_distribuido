@@ -1,0 +1,16 @@
+/App/bin/Debug/net5.0/App
+/App/bin/Debug/net5.0/App.deps.json
+/App/bin/Debug/net5.0/App.runtimeconfig.json
+/App/bin/Debug/net5.0/App.runtimeconfig.dev.json
+/App/bin/Debug/net5.0/App.dll
+/App/bin/Debug/net5.0/ref/App.dll
+/App/bin/Debug/net5.0/App.pdb
+/App/obj/Debug/net5.0/App.csproj.AssemblyReference.cache
+/App/obj/Debug/net5.0/App.GeneratedMSBuildEditorConfig.editorconfig
+/App/obj/Debug/net5.0/App.AssemblyInfoInputs.cache
+/App/obj/Debug/net5.0/App.AssemblyInfo.cs
+/App/obj/Debug/net5.0/App.csproj.CoreCompileInputs.cache
+/App/obj/Debug/net5.0/App.dll
+/App/obj/Debug/net5.0/ref/App.dll
+/App/obj/Debug/net5.0/App.pdb
+/App/obj/Debug/net5.0/App.genruntimeconfig.cache

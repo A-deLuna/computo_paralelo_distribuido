@@ -4,5 +4,5 @@ services:
       context: .
     volumes:
       - "~/.aws/:/root/.aws/"
-    environment:
-      AWS_PROFILE: personal
+#   environment:
+#     AWS_PROFILE: personal

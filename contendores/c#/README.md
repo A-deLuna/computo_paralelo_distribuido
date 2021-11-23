@@ -189,7 +189,7 @@ Algo a notar es que docker va a regresar las ips en formato ipv6. Se verán algo
 ### ¿Cómo mando requests a una direccion ipv6?
 Para mandar requests a una direccion de ipv6 es necesario rodearla con `[]`. Por ejemplo:
 ```
-http:://[::ffff:172.18.0.3]:8080/work
+http://[::ffff:172.18.0.3]:8080/work
 ```
 
 ### ¿Cómo persisto datos en el controlador?

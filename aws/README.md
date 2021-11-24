@@ -30,3 +30,17 @@ https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/S3/TS3Client.html
 docker compose build
 docker compose run aws
 ```
+
+# Troubleshooting:
+Si no funciona lo primero es intentar tener el aws cli configurado.
+
+```
+$ aws configure
+AWS Access Key ID [None]: $LA DE SU EQUIPO
+AWS Secret Access Key [None]: $LA DE SU EQUIPO
+Default region name [None]: us-west-1
+Default output format [None]: TEXT
+```
+
+Si `aws configure` no funciona probablemente no lo tengan instalado, es fácil de
+encontrar en la página de aws.

@@ -1,0 +1,32 @@
+services:
+  leader:
+    build:
+      context: ./leader
+    image: 147063123581.dkr.ecr.us-west-2.amazonaws.com/leader:tony
+    ports:
+      - "8080:8080"
+ #  volumes:
+ #    - "~/.aws/:/root/.aws/"
+    x-aws-policies:
+      - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    environment:
+      ARCHIVO_PALABRAS: "medium_file"
+
+  worker:
+    build:
+      context: ./worker
+    image: 147063123581.dkr.ecr.us-west-2.amazonaws.com/follower:tony
+    deploy:
+      replicas: 16
+      resources:
+        reservations:
+          cpus: '4.00'
+          memory: 8GB
+    depends_on:
+      - leader
+ #  volumes:
+ #    - "~/.aws/:/root/.aws/"
+    x-aws-policies:
+      - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    environment:
+      ARCHIVO_PALABRAS: "medium_file"

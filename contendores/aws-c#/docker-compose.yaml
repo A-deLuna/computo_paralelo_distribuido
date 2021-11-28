@@ -2,7 +2,7 @@ services:
   leader:
     build:
       context: ./leader
-    image: 147063123581.dkr.ecr.us-west-2.amazonaws.com/leader:tony
+    image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/leader:tony
     ports:
       - "8080:8080"
  #  volumes:
@@ -15,13 +15,9 @@ services:
   worker:
     build:
       context: ./worker
-    image: 147063123581.dkr.ecr.us-west-2.amazonaws.com/follower:tony
+    image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/follower:tony
     deploy:
-      replicas: 16
-      resources:
-        reservations:
-          cpus: '4.00'
-          memory: 8GB
+      replicas: 4
     depends_on:
       - leader
  #  volumes:

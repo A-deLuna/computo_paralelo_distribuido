@@ -15,7 +15,7 @@ services:
   worker:
     build:
       context: ./worker
-    image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/follower:tony
+    image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/worker:tony
     deploy:
       replicas: 4
     depends_on:

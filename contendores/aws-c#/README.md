@@ -155,13 +155,45 @@ También es posible ver los logs en el navegador a través de una [página de AW
 
 
 ## Actualizar el sistema
-➜  ~/clase/contendores/c# git:(funcional) ✗ docker compose up
+Para hacer cambios a un cluster que se encuentre corriendo podemos hacer lo siguiente:
+### 1. Build y push a la nueva imagen
+Similar al primer deploy necesitamos actualizar el código que está en ejecución.
+Necesitamos regresar al contexto default para correr los comandos de forma exitosa.
+También puede que las credenciales del repositorio ya no estén actualizadas y tengamos que volver a correr el paso 3 del setup.
+
+```
+docker context use default
+docker compose build
+docker compose push
+```
+
+### 2. Actualizar el estado del sistema
+Ahora podemos regresar al contexto de aws y correr:
+```
+docker context use aws
+docker compose up
+```
+Veremos un mensaje como el siguiente:
+
+```
+$ docker compose up
 WARNING services.build: unsupported attribute
 WARNING services.build: unsupported attribute
 [+] Running 0/0
- ⠋ c  UpdateInProgress User Initiated                                                                                     0.0s
+ ⠋ c  UpdateInProgress User Initiated    0.0s
+```
 
-https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks?filteringStatus=active&filteringText=&viewNested=true&hideStacks=false
+Desgraciadamente aws no nos da mensajes tan detallados del progreso cuando actualizamos.
+Pero podemos ver el [CloudFormation stack](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks?filteringStatus=active&filteringText=&viewNested=true&hideStacks=false) de su aplicación y revisar la lista
+de eventos para ver cuándo se aplican los cambios.
+
+NOTA:
+A diferencia docker compose local, aws no siempre reinicia los servicios. Esto puede causar problemas donde su leader puede
+tener guardada una direccion de un worker que ya no existe. Para reiniciar los servicios de forma fácil 
+Vayan a la lista de [clusters](https://us-west-1.console.aws.amazon.com/ecs/home?region=us-west-1#/clusters) Hagan click en el suyo,
+hagan click en el tab de tasks y busquen la acción que termina todo los tasks. Terminarlos causará que aws los vuelva a empezar de forma
+automática.
+
 
 ## Detener la ejecución del sistema
 Para evitar altos cargos a mi cuenta por favor asegúrense de destruir los recursos
@@ -188,4 +220,3 @@ $ docker compose down
  ⠿ LoadBalancer                 DeleteComplete      1.0s
  ⠿ LeaderTCP8080TargetGroup     DeleteComplete      1.0s
 ```
-# Troubleshooting

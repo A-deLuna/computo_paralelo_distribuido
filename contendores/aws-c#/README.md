@@ -235,3 +235,8 @@ $ docker compose down
  ⠿ LoadBalancer                 DeleteComplete      1.0s
  ⠿ LeaderTCP8080TargetGroup     DeleteComplete      1.0s
 ```
+
+Resultado de medium file:
+{"masComun":{"character":"j","count":330422447},"menosComun":{"character":"g","count":330341542},"runtime":"16405.8655ms"}
+
+Resultado de small file:

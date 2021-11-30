@@ -54,6 +54,8 @@ en vez de empezarlos localmente.
 docker context create ecs aws
 ```
 
+Cuando les pregunte si desean usar profile o key id y secreto seleccionen profile y elijan el perfil default.
+
 
 ### 5. Re-nombrar la carpeta donde está su código a un nombre único por equipo
 Docker creará los recursos en aws usando el nombre de la carpeta como el nombre del proyecto. Para evitar

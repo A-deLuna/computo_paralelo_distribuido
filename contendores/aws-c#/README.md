@@ -76,6 +76,19 @@ services:
     image: 147063123581.dkr.ecr.us-west-1.amazonaws.com/worker:NOMBRE_EQUIPO
 ```
 
+### 7. Comentar la parte de los volumenes
+Para hacerle deploy a un servicio localmente que pueda acceder a s3 agregamos
+a nuestro docker compose:
+```
+  leader:
+...
+    volumes:
+      - "~/.aws/:/root/.aws/"
+```
+
+el contexto de docker compose aws no soporta la configuracion de volumenes.
+Así que deberemos comentar esta parte antes de hacer deploy a AWS.
+
 ## Empezar un servicio en aws
 
 ### 1. Build y push de la imagen a AWS

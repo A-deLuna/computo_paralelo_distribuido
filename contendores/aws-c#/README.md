@@ -236,7 +236,12 @@ $ docker compose down
  ⠿ LeaderTCP8080TargetGroup     DeleteComplete      1.0s
 ```
 
-Resultado de medium file:
+## Resultado de small file:
+```json
+{"masComun":{"character":"c","count":323593},"menosComun":{"character":"k","count":321423},"runtime":"22299.3646ms"}
+```
+## Resultado de medium file:
+```json
 {"masComun":{"character":"j","count":330422447},"menosComun":{"character":"g","count":330341542},"runtime":"16405.8655ms"}
+```
 
-Resultado de small file:
